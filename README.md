@@ -1,24 +1,18 @@
 # LangGraph Field Guide
 
-A static, interactive companion to [Vaibhav Mehra's freeCodeCamp LangGraph course](https://www.youtube.com/watch?v=jGg_1h0qzaM). It focuses on the five teaching graphs, then shows how their flow patterns reappear in the agent projects.
+**[Open the interactive guide](https://monocode-v.github.io/langgraph-field-guide/)**
 
-## Preview locally
+A visual learning companion to [Vaibhav Mehra’s freeCodeCamp LangGraph course](https://www.youtube.com/watch?v=jGg_1h0qzaM). Follow the state through five small graphs, then see how the same patterns support tools, conversation history, and RAG.
 
-Open `index.html` in a browser. The site uses only `index.html`, `styles.css`, and `app.js`; it has no build step or external assets.
+## What you can explore
 
-## Publish with GitHub Pages
+- Four flow shapes: single node, sequence, branch, and loop.
+- Five interactive course graphs with execution maps and state snapshots.
+- Both paths through Graph IV’s router and the five passes of Graph V’s loop.
+- A concise path from basic graphs to the course’s agent projects.
 
-1. Create a repository for this site and place the three site files at the repository root.
-2. Push the files to the repository's default branch.
-3. In the repository, open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, select the default branch and `/(root)`, then save.
+The state values in the visualizations are illustrative; the guide does not run live LLM calls. The diagrams and explanations are an independent companion to the [instructor’s notebooks and code](https://github.com/iamvaibhavmehra/LangGraph-Course-freeCodeCamp).
 
-The site uses relative asset paths, so it works both at the root of a GitHub Pages domain and at a project path such as `username.github.io/repository/`.
+## Run locally
 
-See [GitHub's publishing-source instructions](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) if the Pages settings differ.
-
-## Source material
-
-- [Original video](https://www.youtube.com/watch?v=jGg_1h0qzaM)
-- [Instructor's notebooks and agent code](https://github.com/iamvaibhavmehra/LangGraph-Course-freeCodeCamp)
-
-This is an independent learning companion. The visual state examples are illustrative and are not live LLM calls.
+Open `index.html` in a browser. The site uses plain HTML, CSS, and JavaScript, with no build step or external assets.
