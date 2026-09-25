@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101a19" />
+    <meta name="description" content="An interactive, visual field guide to five LangGraph patterns and the AI agents built from them. Based on Vaibhav Mehra's freeCodeCamp course." />
+    <title>LangGraph Field Guide — Learn the flow</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="brand" href="#top" aria-label="LangGraph Field Guide, back to top">
+          <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>LANGGRAPH<span class="brand-light"> / FIELD GUIDE</span></span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a href="#patterns">Patterns</a>
+          <a href="#lab">Graph lab</a>
+          <a href="#agents">Agents</a>
+        </nav>
+        <a class="header-action" href="https://www.youtube.com/watch?v=jGg_1h0qzaM" target="_blank" rel="noopener noreferrer">Watch course <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> A visual companion to the freeCodeCamp course</div>
+            <h1 id="hero-title">Learn the flow.<br /><em>Build the agent.</em></h1>
+            <p>LangGraph clicks when you can see how state moves. Explore five small graphs, then follow the same patterns into tools, memory, and RAG.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#lab">Explore the graphs <span aria-hidden="true">↘</span></a>
+              <a class="button button-quiet" href="https://github.com/iamvaibhavmehra/LangGraph-Course-freeCodeCamp" target="_blank" rel="noopener noreferrer">Instructor’s code <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero-meta" aria-label="Guide overview">
+              <span><strong>05</strong> guided graphs</span>
+              <span><strong>04</strong> flow shapes</span>
+              <span><strong>03h 09m</strong> source course</span>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-topline"><span>FLOW / 04</span><span>CONDITIONAL ROUTE</span></div>
+            <svg viewBox="0 0 560 350" role="presentation" focusable="false">
+              <defs>
+                <linearGradient id="heroStroke" x1="0" x2="1"><stop stop-color="#b8ee80"/><stop offset="1" stop-color="#6dbab0"/></linearGradient>
+                <filter id="heroGlow"><feGaussianBlur stdDeviation="7" /></filter>
+                <marker id="heroArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8cc6ae" /></marker>
+              </defs>
+              <path class="hero-route" d="M86 175 H170 M290 175 C336 175 335 89 387 89 M290 175 C336 175 335 262 387 262 M488 89 C520 89 520 175 530 175 M488 262 C520 262 520 175 530 175" />
+              <path class="hero-route hero-route-active" d="M86 175 H170 M290 175 C336 175 335 89 387 89" />
+              <circle class="hero-pulse" cx="304" cy="164" r="10" filter="url(#heroGlow)" />
+              <rect class="hero-node hero-end" x="30" y="153" width="56" height="44" rx="16" /><text x="58" y="180" text-anchor="middle">START</text>
+              <rect class="hero-node hero-main" x="170" y="142" width="120" height="66" rx="20" /><text x="230" y="180" text-anchor="middle">router</text>
+              <rect class="hero-node" x="387" y="60" width="101" height="58" rx="18" /><text x="437" y="94" text-anchor="middle">add</text>
+              <rect class="hero-node" x="387" y="233" width="101" height="58" rx="18" /><text x="437" y="267" text-anchor="middle">subtract</text>
+              <circle class="hero-terminal" cx="532" cy="175" r="10" />
+              <text class="hero-label" x="339" y="115">operation = +</text>
+              <text class="hero-label" x="333" y="246">operation = −</text>
+            </svg>
+            <div class="visual-caption"><span class="signal"></span> One state. One chosen path. A clear result.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-patterns wrap" id="patterns" aria-labelledby="patterns-title">
+        <div class="section-head">
+          <div><p class="kicker">01 / The foundation</p><h2 id="patterns-title">Four shapes explain the five graphs.</h2></div>
+          <p>Graph II adds richer input to a single-node graph. The others change the route that state takes.</p>
+        </div>
+        <div class="pattern-grid">
+          <article class="pattern-card">
+            <span class="pattern-index">01</span>
+            <div class="mini-flow" aria-hidden="true"><b></b><s></s><b class="wide"></b><s></s><b></b></div>
+            <h3>Single node</h3>
+            <p>One function receives state, does a job, and returns an update.</p>
+            <small>Graph I &amp; II</small>
+          </article>
+          <article class="pattern-card">
+            <span class="pattern-index">02</span>
+            <div class="mini-flow" aria-hidden="true"><b></b><s></s><b></b><s></s><b></b><s></s><b></b></div>
+            <h3>Sequence</h3>
+            <p>Each node uses the state produced by the one before it.</p>
+            <small>Graph III</small>
+          </article>
+          <article class="pattern-card">
+            <span class="pattern-index">03</span>
+            <div class="mini-branch" aria-hidden="true"><b></b><span><s></s><s></s></span><div><b></b><b></b></div></div>
+            <h3>Branch</h3>
+            <p>A routing function chooses which node runs next.</p>
+            <small>Graph IV</small>
+          </article>
+          <article class="pattern-card">
+            <span class="pattern-index">04</span>
+            <div class="mini-loop" aria-hidden="true"><b></b><s></s><b></b><span>↶</span></div>
+            <h3>Loop</h3>
+            <p>A conditional edge repeats a node until a stop rule is met.</p>
+            <small>Graph V</small>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-lab" id="lab" aria-labelledby="lab-title">
+        <div class="wrap">
+          <div class="section-head lab-heading">
+            <div><p class="kicker">02 / Interactive graph lab</p><h2 id="lab-title">Step through the state.</h2></div>
+            <p>Choose a graph, then move through its execution. The highlighted node and state snapshot show what just happened.</p>
+          </div>
+          <div class="lab-shell">
+            <div class="lab-tabs" role="tablist" aria-label="Course graphs">
+              <button type="button" class="lab-tab is-selected" role="tab" aria-selected="true" aria-controls="graph-panel" id="tab-graph-1" data-graph="graph-1"><span>01</span> Hello World</button>
+              <button type="button" class="lab-tab" role="tab" aria-selected="false" aria-controls="graph-panel" id="tab-graph-2" data-graph="graph-2"><span>02</span> Multiple inputs</button>
+              <button type="button" class="lab-tab" role="tab" aria-selected="false" aria-controls="graph-panel" id="tab-graph-3" data-graph="graph-3"><span>03</span> Sequential</button>
+              <button type="button" class="lab-tab" role="tab" aria-selected="false" aria-controls="graph-panel" id="tab-graph-4" data-graph="graph-4"><span>04</span> Conditional</button>
+              <button type="button" class="lab-tab" role="tab" aria-selected="false" aria-controls="graph-panel" id="tab-graph-5" data-graph="graph-5"><span>05</span> Looping</button>
+            </div>
+            <div class="lab-content" id="graph-panel" role="tabpanel" aria-labelledby="tab-graph-1">
+              <div class="lab-top">
+                <div><div class="lab-identifier" id="graph-eyebrow">GRAPH 01 / SINGLE NODE</div><h3 id="graph-title">Hello World</h3><p id="graph-summary">The smallest possible LangGraph flow: read state, update it once, then finish.</p></div>
+                <div class="lab-links"><a id="graph-video" href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=1119s" target="_blank" rel="noopener noreferrer">Watch lesson ↗</a><a id="graph-source" href="https://github.com/iamvaibhavmehra/LangGraph-Course-freeCodeCamp/blob/main/Graphs/Hello_Word.ipynb" target="_blank" rel="noopener noreferrer">See notebook ↗</a></div>
+              </div>
+              <div class="lab-main">
+                <div class="diagram-pane">
+                  <div class="pane-label"><span>EXECUTION MAP</span><span id="diagram-caption">START → greeter → END</span></div>
+                  <svg id="graph-svg" class="graph-svg" viewBox="0 0 800 340" role="img" aria-label="Graph execution diagram"></svg>
+                  <div class="route-selector" id="route-selector" hidden aria-label="Choose an operation">
+                    <span>Try a route</span>
+                    <button type="button" class="route-button is-active" data-operation="-" aria-pressed="true">10 − 5</button>
+                    <button type="button" class="route-button" data-operation="+" aria-pressed="false">10 + 5</button>
+                  </div>
+                </div>
+                <div class="state-pane">
+                  <div class="pane-label"><span>STATE INSPECTOR</span><span id="step-counter">01 / 03</span></div>
+                  <div class="step-kicker" id="step-node">INPUT</div>
+                  <h4 id="step-title">The graph receives a message</h4>
+                  <p id="step-explanation">State begins with a single field: the name to greet.</p>
+                  <pre class="state-code"><code id="state-json"></code></pre>
+                  <div class="step-controls"><button type="button" id="previous-step" class="icon-button" aria-label="Previous state" disabled>←</button><div class="step-dots" id="step-dots" aria-label="Steps"></div><button type="button" id="next-step" class="next-button">Next state <span aria-hidden="true">→</span></button></div>
+                </div>
+              </div>
+              <div class="lab-takeaway"><span>KEY IDEA</span><p id="graph-takeaway">A node is a Python function. The graph determines when it runs.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap branch-section" id="router" aria-labelledby="router-title">
+        <div class="section-head">
+          <div><p class="kicker">03 / The crucial distinction</p><h2 id="router-title">The router is a node.<br />The route is a decision.</h2></div>
+          <p>Graph IV is where the course moves from a fixed sequence to a graph that chooses its next step.</p>
+        </div>
+        <div class="anatomy-grid">
+          <div class="anatomy-card"><span>01 / PASS THROUGH</span><h3><code>router</code></h3><p>A named node receives the state. In this example it does no arithmetic.</p></div>
+          <div class="anatomy-card"><span>02 / CHOOSE</span><h3><code>decide_next_node</code></h3><p>The routing function reads <code>operation</code> and returns a route label.</p></div>
+          <div class="anatomy-card"><span>03 / ARRIVE</span><h3><code>add_node</code> or <code>subtract_node</code></h3><p>The route map sends execution to exactly one calculation node.</p></div>
+        </div>
+        <div class="compare-callout"><div><span>GRAPH II</span><strong>if statement inside one node</strong><p>The calculation changes, but the graph still takes the same path.</p></div><div class="compare-divider" aria-hidden="true">≠</div><div><span>GRAPH IV</span><strong>conditional edge between nodes</strong><p>The path itself changes. Only the selected operation node runs.</p></div></div>
+      </section>
+
+      <section class="section agents-section" id="agents" aria-labelledby="agents-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div><p class="kicker">04 / From graph to agent</p><h2 id="agents-title">Same structure. New capability.</h2></div>
+            <p>Once state and routing make sense, the rest of the video adds model calls and tools to those same paths.</p>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card"><div class="agent-number">01</div><h3>Simple bot</h3><p>A model sits inside one node and answers a human message.</p><div class="agent-flow">Human <span>→</span> Model <span>→</span> Answer</div><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=5461s" target="_blank" rel="noopener noreferrer">1:31:01 ↗</a></article>
+            <article class="agent-card"><div class="agent-number">02</div><h3>Conversation history</h3><p>Earlier human and AI messages are sent again so later replies have context.</p><div class="agent-flow">History <span>→</span> Model <span>→</span> New turn</div><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=6174s" target="_blank" rel="noopener noreferrer">1:42:54 ↗</a></article>
+            <article class="agent-card"><div class="agent-number">03</div><h3>ReAct tools</h3><p>The model requests a tool. The tool returns a result. The model decides whether to continue.</p><div class="agent-flow">Model <span>↔</span> Tools</div><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=7400s" target="_blank" rel="noopener noreferrer">2:03:20 ↗</a></article>
+            <article class="agent-card"><div class="agent-number">04</div><h3>Drafter</h3><p>A person reviews the draft, requests changes, and finishes by saving it.</p><div class="agent-flow">Draft <span>↔</span> Review <span>→</span> Save</div><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=8926s" target="_blank" rel="noopener noreferrer">2:28:46 ↗</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap rag-section" id="rag" aria-labelledby="rag-title">
+        <div class="section-head"><div><p class="kicker">05 / Final project</p><h2 id="rag-title">RAG: answer from the document.</h2></div><p>The last agent uses retrieval as a tool. A question leads to relevant PDF passages, then to a response informed by those passages.</p></div>
+        <div class="rag-flow" aria-label="RAG pipeline">
+          <div><span>01</span><strong>Load PDF</strong><small>Read the source pages</small></div><i aria-hidden="true">→</i>
+          <div><span>02</span><strong>Split + embed</strong><small>Prepare searchable chunks</small></div><i aria-hidden="true">→</i>
+          <div><span>03</span><strong>Retrieve</strong><small>Find five relevant chunks</small></div><i aria-hidden="true">→</i>
+          <div><span>04</span><strong>Answer</strong><small>Use the retrieved context</small></div>
+        </div>
+        <div class="rag-note"><span class="note-icon" aria-hidden="true">✳</span><p><strong>The learning check:</strong> Compare the answer with the actual PDF passage. A retrieval result can be irrelevant, and a fluent answer can still be wrong.</p><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM&t=10329s" target="_blank" rel="noopener noreferrer">Watch RAG lesson ↗</a></div>
+      </section>
+
+      <section class="section closing-section" aria-labelledby="closing-title">
+        <div class="wrap closing-inner"><div><p class="kicker">Make it stick</p><h2 id="closing-title">Watch. Rebuild. Explain.</h2><p>After each graph, predict its final state, recreate its edges, then explain why it reaches that result. That is the fastest way to turn the course into working knowledge.</p></div><a class="button button-primary" href="#lab">Return to graph lab <span aria-hidden="true">↑</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="wrap footer-inner"><div><strong>LANGGRAPH / FIELD GUIDE</strong><p>An independent visual companion to Vaibhav Mehra’s freeCodeCamp course.</p></div><div class="footer-links"><a href="https://www.youtube.com/watch?v=jGg_1h0qzaM" target="_blank" rel="noopener noreferrer">Original course ↗</a><a href="https://github.com/iamvaibhavmehra/LangGraph-Course-freeCodeCamp" target="_blank" rel="noopener noreferrer">Instructor’s code ↗</a></div></div></footer>
+  </body>
+</html>
